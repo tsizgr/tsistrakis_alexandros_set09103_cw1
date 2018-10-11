@@ -8,6 +8,18 @@ def home ():
 @app.route ('/kids')
 def kids ():
 	return render_template ('kids.html')
+	
+@app.route ('/kids/shoes')
+def kidsshoes ():
+	return render_template ('kidsshoes.html')
+	
+@app.route ('/kids/trousers')
+def kidstrousers ():
+	return render_template ('kidstrousers.html')
+	
+@app.route ('/kids/tops')
+def kidstops ():
+	return render_template ('kidstops.html')
 
 @app.route ('/men')
 def men ():
