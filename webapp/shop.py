@@ -1,8 +1,9 @@
-from flask import Flask, render_template, url_for, #request
+from flask import Flask, render_template, url_for, request
 app = Flask (__name__)
 
 @app.route ('/')
 def home ():
+
 		return render_template ('template.html')
 		
 @app.route ('/photos')
@@ -13,23 +14,24 @@ def photos ():
 	return start+url+end, 200
 	
 	
-# @app.route('/account/', methods=['POST','GET'])
-#def account():
-#	if request.method == 'POST':
-#		print request.form
-#		name = request.form['name']
-#		return "Hello %s" % name
-#	else:
-#		page ='''
-#		<html > <body >
-#		<form action ="" method =" post " name ="form">
-#		<label for =" name " > Name : </ label >
-#		<input type =" text " name =" name " id ="name"/>
-#		<input type =" submit " name =" submit " id =" submit"/>
-#		</form>
-#		</body><html>'''
-#
-#	return page
+@app.route('/account/', methods=['POST','GET'])
+def account():
+	if request.method == 'POST':
+		print request.form
+		name = request.form['name']
+		return "Hello %s" % name
+		
+	else:
+		page ='''
+		<html><body>
+		<form action ="" method ="post" name="form">
+		<label for =" name " > Name : </ label >
+		<input type ="text" name="name" id="name"/>
+		<input type ="submit" name="submit" id="submit"/>
+		</form>
+		</body><html>'''
+
+	return page
 
 	
 @app . route ('/ force404 ')
